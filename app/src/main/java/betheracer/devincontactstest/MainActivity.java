@@ -2,6 +2,8 @@ package betheracer.devincontactstest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -66,6 +68,16 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         requestQueue.add(request);
+
+        Button button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                textView.setText("Button Clicked");
+
+            }
+        });
 
     }
 }
