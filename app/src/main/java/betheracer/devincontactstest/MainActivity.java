@@ -19,8 +19,11 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
+    private RequestQueue requestQueue1;
     private StringRequest request;
+    private StringRequest request1;
     private static final String URL = "http://iblind7.godo.co.kr/shop/proc/test.php";
+    private static final String URL1 = "http://iblind7.godo.co.kr/shop/proc/test1.php";
 
     TextView textView;
 
@@ -49,6 +52,26 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    Response.Listener<String> listener1 = new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+
+            textView.setText(response);
+        }
+    };
+
+
+    Response.ErrorListener errorListener1 = new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+
+            textView.setText("Error test1.php");
+        }
+    };
+
+
+
+
 
 
     @Override
@@ -59,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
 
         requestQueue = Volley.newRequestQueue(this);
+        requestQueue1 = Volley.newRequestQueue(this);
 
         request = new StringRequest(Request.Method.POST, URL, listener, errorListener) {
 
@@ -73,8 +97,16 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 textView.setText("Button Clicked");
+
+                request1 = new StringRequest(Request.Method.POST, URL1, listener1, errorListener1) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        return super.getParams();
+                    }
+                };
+                requestQueue1.add(request1);
+
 
             }
         });
