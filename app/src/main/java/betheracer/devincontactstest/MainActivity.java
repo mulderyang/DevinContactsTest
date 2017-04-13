@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -102,7 +103,11 @@ public class MainActivity extends AppCompatActivity {
                 request1 = new StringRequest(Request.Method.POST, URL1, listener1, errorListener1) {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        return super.getParams();
+                        Map<String, String> hashMap = new HashMap<String, String>();
+                        hashMap.put("aaa", "bbb");
+                        hashMap.put("ccc", "ddd");
+                        //return super.getParams();
+                        return hashMap;
                     }
                 };
                 requestQueue1.add(request1);
