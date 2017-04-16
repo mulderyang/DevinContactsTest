@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue1;
     private StringRequest request;
     private StringRequest request1;
-    private static final String URL = "http://iblind7.godo.co.kr/shop/proc/test.php";
-    private static final String URL1 = "http://iblind7.godo.co.kr/shop/proc/test1.php";
+    //private static final String URL = "http://iblind7.godo.co.kr/shop/proc/test.php";
+    private static final String URL = "http://192.168.0.16/shop/android/test.php?start_debug=1&send_sess_end=1&debug_start_session=1&debug_session_id=12801&debug_port=10137&debug_host=192.168.109.1%2C127.0.0.1";
+
+    //private static final String URL1 = "http://iblind7.godo.co.kr/shop/proc/test1.php";
+    private static final String URL1 = "http://192.168.0.16/shop/android/test1.php?start_debug=1&send_sess_end=1&debug_start_session=1&debug_session_id=12801&debug_port=10137&debug_host=192.168.109.1%2C127.0.0.1";
 
     TextView textView;
 
